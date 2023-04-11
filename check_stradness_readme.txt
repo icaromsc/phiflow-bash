@@ -1,4 +1,6 @@
-
+Dependencies:
+- RSeQC
+- Pandas
 
 usage: python check_strandness.py -g/--bed myfile.bed, -b/--bam myfile.bam , library[paired-end,single-end]
 
