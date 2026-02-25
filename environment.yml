@@ -1,0 +1,38 @@
+name: phiflow
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+
+  # =====================
+  # Python
+  # =====================
+  - python=3.11
+  - numpy=1.26
+  - pandas=2.2
+
+  # =====================
+  # Bioinformatics tools
+  # =====================
+  - fastp=0.23
+  - multiqc=1.21
+  - star=2.7
+  - kraken2=2.1
+  - samtools=1.18
+  - rseqc=5.0
+  - subread=2.0
+  - conifer
+
+  # =====================
+  # R environment
+  # =====================
+  - r-base=4.3
+  - r-stringr
+  - r-dplyr
+  - r-tidyr
+
+  # Optional but recommended
+  - pigz
+  - parallel
