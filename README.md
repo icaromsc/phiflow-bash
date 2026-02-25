@@ -25,18 +25,20 @@ classification and detection into a unified workflow.
 
 # ⚠️ Prerequisites
 
+PHIFlow requires:
+
+-   Human genome FASTA (e.g., GRCh38)
+-   Human genome annotation file (GTF,BED)
+-   STAR genome index path
+-   Kraken2 database path
+
 Before running the pipeline, the required reference resources must be
 prepared.
+
 
 ------------------------------------------------------------------------
 
 ## 1️⃣ Human Reference Genome and STAR Index
-
-PHIFlow requires:
-
--   Human genome FASTA (e.g., GRCh38)
--   Gene annotation file (GTF)
--   STAR genome index
 
 Reference genome and GTF files can be obtained from:
 
@@ -61,8 +63,21 @@ host_genome_index_path: "/path/to/star_index/"
 host_genome_annotation_path_gtf: "/path/to/Homo_sapiens.GRCh38.gtf"
 ```
 
-A BED annotation file is also required for RSeQC.
+## 📄 Generating a BED File from Ensembl GTF
 
+Ensembl does not provide genome annotation files directly in BED format. However, a BED file can be generated from the corresponding GTF file using UCSC utilities.
+
+After downloading the GTF file (e.g., Homo_sapiens.GRCh38.gtf), convert it using UCSC utilities:
+``` bash
+gtfToGenePred Homo_sapiens.GRCh38.gtf stdout | \
+genePredToBed stdin Homo_sapiens.GRCh38.bed
+```
+
+After generating the BED file, update your configuration file:
+
+``` yaml
+host_genome_annotation_path_bed: "/path/to/Homo_sapiens.GRCh38.bed"
+```
 ------------------------------------------------------------------------
 
 ## 2️⃣ Kraken2 Database
