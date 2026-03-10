@@ -154,7 +154,7 @@ conda activate phiflow-bash
 Execution requires a single command:
 
 ``` bash
-bash run_phiflow.sh config_profile.yml
+bash phiflow.sh config_profile.yml
 ```
 
 ------------------------------------------------------------------------
@@ -167,13 +167,12 @@ Example:
 
 ``` yaml
 module_execution_type: "both"
-sample_ids_file: "/scratch/icaro/phiflow_pipeline/sepsis_samples.txt"
+sample_ids_file: "/scratch/icaro/phiflow_pipeline/samples.txt"
 dataset_name: "GSE154918"
 kraken2_db_path: "/scratch/kraken2db/k2_pluspf"
 host_genome_index_path: "/scratch/icaro/genome_indexes/index/100/"
 host_genome_annotation_path_gtf: "/scratch/icaro/genome_indexes/gene_annotation/Homo_sapiens.GRCh38.104.gtf"
 host_genome_annotation_path_bed: "/scratch/icaro/genome_indexes/gene_annotation/Homo_sapiens.GRCh38.104.bed"
-conifer_path: "/scratch/icaro/Conifer/conifer"
 paired_end: "yes"
 strandness: "auto"
 workdir: "/scratch/icaro/phiflow_pipeline"
@@ -193,7 +192,6 @@ samplesdir: "/home/CSBL/icaro/sandbox/metatranscriptomics/studies/GSE154918"
   | host_genome_index_path: | STAR genome index directory |
   | host_genome_annotation_path_gtf: | GTF annotation filepath |
   | host_genome_annotation_path_bed: | BED annotation filepath |
-  | conifer_path | Path to CONIFER executable |
   | paired_end: | "yes" or "no" |
   | strandness | "auto", "yes", or "no" |
   | workdir | Output directory |
@@ -201,7 +199,7 @@ samplesdir: "/home/CSBL/icaro/sandbox/metatranscriptomics/studies/GSE154918"
 
 ------------------------------------------------------------------------
 
-# 📂 Expected Input
+# 📂 Expected FASTQ Input
 
 FASTQ files must be located in the directory specified by:
 
